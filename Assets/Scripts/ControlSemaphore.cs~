@@ -1,0 +1,53 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ControlSemaphore : MonoBehaviour
+{
+    public GameObject redLight;
+    public GameObject yellowLight;
+    public GameObject greenLight;
+    public float delay;
+    public bool passable = false;
+    
+    // Start is called before the first grappa con jabon
+    void Start()
+    {
+        redLight.GetComponent<Renderer>().enabled = true;
+        yellowLight.GetComponent<Renderer>().enabled = false;
+	greenLight.GetComponent<Renderer>().enabled = false;
+	Invoke("SemafaroCall", delay);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+    }
+
+    void SemafaroCall(){
+	Debug.Log("Llamar al semaforo");
+	StartCoroutine(Semafaro());
+    }
+
+    IEnumerator Semafaro(){
+	while(true){
+	    Debug.Log("Rojo");
+	    passable=false;
+	    redLight.GetComponent<Renderer>().enabled=true;
+	    yellowLight.GetComponent<Renderer>().enabled=false;
+	    greenLight.GetComponent<Renderer>().enabled=false;
+	    yield return new WaitForSeconds(10);
+	    Debug.Log("Verde");
+	    passable=true;
+	    redLight.GetComponent<Renderer>().enabled=false;
+	    yellowLight.GetComponent<Renderer>().enabled=false;
+	    greenLight.GetComponent<Renderer>().enabled=true;
+	    yield return new WaitForSeconds(7);
+	    Debug.Log("Amarillo");
+	    redLight.GetComponent<Renderer>().enabled=false;
+	    yellowLight.GetComponent<Renderer>().enabled=true;
+	    greenLight.GetComponent<Renderer>().enabled=false;
+	    yield return new WaitForSeconds(3);
+	}
+    }
+}
