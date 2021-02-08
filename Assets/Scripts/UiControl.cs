@@ -12,6 +12,7 @@ public class UiControl : MonoBehaviour
     public Button customSpeed;
     public float speedAndTime = 1;
     public InputField customSpeedText;
+    public Camera camera;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,7 @@ public class UiControl : MonoBehaviour
         normalSpeed.GetComponent<Image>().color = Color.white;
         doubleSpeed.GetComponent<Image>().color = Color.white;
 	customSpeed.GetComponent<Image>().color = Color.white;
+	camera.GetComponent<CameraScript>().changeTimeScale(speedAndTime);
     }
 
     void setNormalSpeed(){
@@ -36,6 +38,8 @@ public class UiControl : MonoBehaviour
         normalSpeed.GetComponent<Image>().color = Color.blue;
         doubleSpeed.GetComponent<Image>().color = Color.white;
 	customSpeed.GetComponent<Image>().color = Color.white;
+	camera.GetComponent<CameraScript>().changeTimeScale(speedAndTime);
+
     }
 
     void setDoubleSpeed(){
@@ -44,6 +48,8 @@ public class UiControl : MonoBehaviour
         normalSpeed.GetComponent<Image>().color = Color.white;
         doubleSpeed.GetComponent<Image>().color = Color.blue;
 	customSpeed.GetComponent<Image>().color = Color.white;
+	camera.GetComponent<CameraScript>().changeTimeScale(speedAndTime);
+	
     }
 
     void setCustomSpeed(){
@@ -58,7 +64,7 @@ public class UiControl : MonoBehaviour
         normalSpeed.GetComponent<Image>().color = Color.white;
         doubleSpeed.GetComponent<Image>().color = Color.white;
 	customSpeed.GetComponent<Image>().color = Color.blue;
-	
+       	camera.GetComponent<CameraScript>().changeTimeScale(speedAndTime);
     }
 
     

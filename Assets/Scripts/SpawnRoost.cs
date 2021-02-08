@@ -15,7 +15,7 @@ public class SpawnRoost : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnRooster", 0, 1 / GameObject.Find("Canvas").GetComponent<UiControl>().speedAndTime);
+        InvokeRepeating("SpawnRooster", 0, 1);
     }
 
     private void SpawnRooster(){

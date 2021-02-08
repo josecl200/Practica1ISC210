@@ -29,24 +29,22 @@ public class ControlSemaphore : MonoBehaviour
     }
 
     IEnumerator Semafaro(){
-	float timeMod = GameObject.Find("Canvas").GetComponent<UiControl>().speedAndTime;
 	while(true){
-	    timeMod = GameObject.Find("Canvas").GetComponent<UiControl>().speedAndTime;
 	    passable=false;
 	    redLight.GetComponent<Renderer>().enabled=true;
 	    yellowLight.GetComponent<Renderer>().enabled=false;
 	    greenLight.GetComponent<Renderer>().enabled=false;
-	    yield return new WaitForSeconds(10 / timeMod);
+	    yield return new WaitForSeconds(10);
 	    passable=true;
 	    CarsCanPass();
 	    redLight.GetComponent<Renderer>().enabled=false;
 	    yellowLight.GetComponent<Renderer>().enabled=false;
 	    greenLight.GetComponent<Renderer>().enabled=true;
-	    yield return new WaitForSeconds(7 / timeMod);
+	    yield return new WaitForSeconds(7);
 	    redLight.GetComponent<Renderer>().enabled=false;
 	    yellowLight.GetComponent<Renderer>().enabled=true;
 	    greenLight.GetComponent<Renderer>().enabled=false;
-	    yield return new WaitForSeconds(3 / timeMod);
+	    yield return new WaitForSeconds(3);
 	    StopCoroutine(MoveCars());
 	}
     }

@@ -19,16 +19,16 @@ public class MovRoost : MonoBehaviour
 	if(run) {
 	    switch(direction){
 		case 'U':
-	            movingDirection = new Vector3(0,2*Time.deltaTime* GameObject.Find("Canvas").GetComponent<UiControl>().speedAndTime,0);
+	            movingDirection = new Vector3(0,2*Time.deltaTime,0);
 	            break;
 	        case 'D':
-		    movingDirection = new Vector3(0,-2*Time.deltaTime* GameObject.Find("Canvas").GetComponent<UiControl>().speedAndTime,0);
+		    movingDirection = new Vector3(0,-2*Time.deltaTime,0);
 		    break;
 	        case 'L':
-		    movingDirection = new Vector3(-2*Time.deltaTime* GameObject.Find("Canvas").GetComponent<UiControl>().speedAndTime,0,0);
+		    movingDirection = new Vector3(-2*Time.deltaTime,0,0);
 		    break;
 	        case 'R':
-		    movingDirection = new Vector3(2*Time.deltaTime* GameObject.Find("Canvas").GetComponent<UiControl>().speedAndTime,0,0);
+		    movingDirection = new Vector3(2*Time.deltaTime,0,0);
 		    break;
 	    }
 		gameObject.transform.position += movingDirection;
